@@ -1,0 +1,58 @@
+.thumbnailViewer {
+
+  margin: 50px auto 20px;
+  padding: 120px 0 20px;
+  text-align: center;
+
+  h2, h3 {
+    margin: 0 3px;
+    line-height: 1;
+  }
+
+  & > h2 {
+    margin: 80px 0;
+  }
+
+  & > div {
+
+    display: flex;
+    flex-wrap: wrap;
+    width: 90%;
+    margin: auto;
+
+    & > div {
+      text-align: center;
+      font-size: calc(7px + 0.3vw);
+      width: 20%;
+      padding: 10px;
+      margin: 16px 0;
+      flex-grow: 1;
+
+      img {
+        width: 80%;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+      }
+
+      section {
+        background-color: #ccc;
+        padding-top: 35px;
+        margin-top: -24px;
+        height: 7em;
+        padding: 35px 10px 10px;
+      }
+
+      h2 {
+        font-weight: bold;
+      }
+
+      h3 {
+        color: #00008B;
+        font-style: italic;
+      }
+
+    }
+
+  }
+
+
+}
