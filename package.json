@@ -10,6 +10,7 @@
     "eslint": "eslint .",
     "prod": "node prodServer"
   },
+  "homepage": "https://chiefsmurph.github.io/hoopla-movie-thumbnails/",
   "author": "John Murphy",
   "dependencies": {
     "better-react-spinkit": "^1.2.4",

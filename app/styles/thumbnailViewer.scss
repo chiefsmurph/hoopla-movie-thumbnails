@@ -4,16 +4,15 @@
   padding: 120px 0 20px;
   text-align: center;
 
-  h2, h3 {
-    margin: 0 3px;
-    line-height: 1;
-  }
-
   & > h2 {
+    /* loading */
     margin: 80px 0;
   }
 
+
   & > div {
+
+    /* both pagination and thumbnailGrid */
 
     display: flex;
     flex-wrap: wrap;
@@ -21,6 +20,9 @@
     margin: auto;
 
     & > div {
+
+      /* single title */
+
       text-align: center;
       font-size: calc(7px + 0.3vw);
       width: 20%;
@@ -43,11 +45,6 @@
 
       h2 {
         font-weight: bold;
-      }
-
-      h3 {
-        color: #00008B;
-        font-style: italic;
       }
 
     }

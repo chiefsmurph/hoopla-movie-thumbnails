@@ -71,7 +71,7 @@ const mapStateToProps = (state) => {
     return {
         thumbnailsFetching: state.thumbnailsFetching,
         thumbnails: state.thumbnails,
-        allLoaded: (state.loadCount === state.thumbnails.length || state.pageCached) && state.thumbnails.length,
+        allLoaded: !!((state.loadCount === state.thumbnails.length || state.pageCached) && state.thumbnails.length),
         pageCached: state.pageCached
     };
 };
