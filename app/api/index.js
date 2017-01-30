@@ -1,5 +1,5 @@
 import Promise from 'es6-promise';
-import { isCached } from '../actions';
+import { pageCached } from '../actions';
 
 const apiCache = {};
 
@@ -9,7 +9,7 @@ export const fetchMovies = (page, dispatch) => {
     if (apiCache[page]) {
         return new Promise((resolve) => {
             setTimeout(() => {
-                dispatch(isCached(true));
+                dispatch(pageCached(true));
                 resolve(apiCache[page]);
             }, 100);
         });

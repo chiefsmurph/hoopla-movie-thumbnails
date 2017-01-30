@@ -17,7 +17,7 @@ class ThumbnailViewer extends Component {
         }
     }
     thumbnailLoaded() {
-        if (!this.props.thumbnailsFetching && !this.props.isCached) {
+        if (!this.props.thumbnailsFetching && !this.props.pageCached) {
             this.props.thumbnailLoaded();
         }
     }
@@ -64,15 +64,15 @@ ThumbnailViewer.propTypes = {
     page: PropTypes.number,
     allLoaded: PropTypes.bool,
     thumbnailLoaded: PropTypes.func,
-    isCached: PropTypes.bool
+    pageCached: PropTypes.bool
 };
 
 const mapStateToProps = (state) => {
     return {
         thumbnailsFetching: state.thumbnailsFetching,
         thumbnails: state.thumbnails,
-        allLoaded: (state.loadCount === state.thumbnails.length || state.isCached) && state.thumbnails.length,
-        isCached: state.isCached
+        allLoaded: (state.loadCount === state.thumbnails.length || state.pageCached) && state.thumbnails.length,
+        pageCached: state.pageCached
     };
 };
 

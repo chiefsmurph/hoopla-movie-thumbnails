@@ -1,5 +1,4 @@
 import { combineReducers } from 'redux';
-// import * as types from '../actions/types';
 
 const thumbnails = (state = [], action) => {
     switch (action.type) {
@@ -34,7 +33,7 @@ const loadCount = (state = 0, action) => {
     }
 };
 
-const isCached = (state = false, action) => {
+const pageCached = (state = false, action) => {
     switch (action.type) {
         case 'THUMBNAILS_FETCHING':
             return (action.thumbnailsFetching) ? false : state;
@@ -49,7 +48,7 @@ const rootReducer = combineReducers({
     thumbnails,
     thumbnailsFetching,
     loadCount,
-    isCached
+    pageCached
 });
 
 export default rootReducer;

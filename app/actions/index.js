@@ -29,7 +29,7 @@ export function thumbnailLoaded(loadCount) {
     };
 }
 
-export function isCached(bool) {
+export function pageCached(bool) {
     return {
         type: 'PAGE_CACHED',
         cached: bool
