@@ -4,7 +4,7 @@ import App from './components/App';
 import FilterableTable from './containers/FilterableTable';
 
 export default (
-	<Route path="/hoopla-movie-thumbnails" component={App}>
+	<Route path="/" component={App}>
 		<IndexRoute component={FilterableTable} />
 	</Route>
 );

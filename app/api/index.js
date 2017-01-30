@@ -1,10 +1,11 @@
 import Promise from 'es6-promise';
 import { pageCached } from '../actions';
+import { TITLES_PER_PAGE } from '../constants';
 
 const apiCache = {};
 
 export const fetchMovies = (page, dispatch) => {
-    const offset = 48 * (page - 1);
+    const offset = TITLES_PER_PAGE * (page - 1);
 
     if (apiCache[page]) {
         return new Promise((resolve) => {
@@ -24,7 +25,7 @@ export const fetchMovies = (page, dispatch) => {
         return Promise.reject(new Error(response.statusText));
     };
 
-    return fetch(`https://hoopla-ws-dev.hoopladigital.com/kinds/7/titles/featured?offset=${offset}&limit=48&kindId=7`, {
+    return fetch(`https://hoopla-ws-dev.hoopladigital.com/kinds/7/titles/featured?offset=${offset}&limit=${TITLES_PER_PAGE}&kindId=7`, {
         headers: {
             'ws-api': '2.1'
         }
