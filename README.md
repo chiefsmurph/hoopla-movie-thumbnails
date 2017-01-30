@@ -1,16 +1,18 @@
 # hoopla-movie-thumbnails
 
-first...
+## first...
 npm install
 
-then...
+## then...
 
-Development
+### Development
 npm start
 
-Production
+### Production
 npm run build
+
 npm run prod
 
 
-...or you can view it live on Github Pages
+...or you can view it live here
+https://pacific-ridge-55762.herokuapp.com/
