@@ -7,7 +7,7 @@ import { TITLES_PER_PAGE } from '../constants';
 
 const Pagination = ({ page, resultCount }) => {
     const startPos = (page - 1) * TITLES_PER_PAGE + 1;
-    const showingResults = [ startPos, startPos + resultCount].join(' - ');
+    const showingResults = [ startPos, startPos + resultCount - 1].join(' - ');
 
     const styles = {
         prevLink: { visibility: (page > 1) ? 'visible' : 'hidden' },
@@ -32,6 +32,7 @@ const Pagination = ({ page, resultCount }) => {
 Pagination.propTypes = {
     page: PropTypes.number,
     resultCount: PropTypes.number
+
 };
 
 export default Pagination;
