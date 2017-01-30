@@ -7,17 +7,20 @@ import FaArrowRight from 'react-icons/fa/arrow-right';
 const Pagination = ({ page, resultCount }) => {
     const startPos = (page - 1) * 48 + 1;
     const showingResults = [ startPos, startPos + resultCount].join(' - ');
-    const prevLinkStyle = { visibility: (page > 1) ? 'visible' : 'hidden' };
-    const nextLinkStyle = { visibility: (resultCount === 48) ? 'visible' : 'hidden' };
 
+    const styles = {
+        prevLink: { visibility: (page > 1) ? 'visible' : 'hidden' },
+        nextLink: { visibility: (resultCount === 48) ? 'visible' : 'hidden' },
+        resultCount: { visibility: (resultCount > 0) ? 'visible' : 'hidden' }
+    };
     return (
       <div className={pagination}>
-        <Link to={{ query: { page: page - 1 } }} style={prevLinkStyle}>
+        <Link to={{ query: { page: page - 1 } }} style={styles.prevLink}>
             <FaArrowLeft />
             Previous page
         </Link>
-        <span>Results: {showingResults}</span>
-        <Link to={{ query: { page: page + 1 } }} style={nextLinkStyle}>
+        <span style={styles.resultCount}>Results: {showingResults}</span>
+        <Link to={{ query: { page: page + 1 } }} style={styles.nextLink}>
             Next page
             <FaArrowRight/>
         </Link>

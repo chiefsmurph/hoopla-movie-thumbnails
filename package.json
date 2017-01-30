@@ -6,8 +6,9 @@
   "scripts": {
     "test": "",
     "start": "node server",
-    "build": "rimraf dist && webpack --config ./webpack.production.config.js --progress --profile --colors",
-    "eslint": "eslint ."
+    "build": "rimraf dist && webpack --config ./webpack.production.config.js --progress --profile --colors --display-modules",
+    "eslint": "eslint .",
+    "prod": "node prodServer"
   },
   "author": "John Murphy",
   "dependencies": {
