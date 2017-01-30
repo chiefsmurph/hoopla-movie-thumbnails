@@ -1,7 +1,7 @@
 {
-  "name": "webpack-react-redux",
+  "name": "hoopla-movie-thumbnails",
   "version": "1.0.0",
-  "description": "A boilerplate for playing around with react, redux and react-router with the help of webpack.",
+  "description": "Browse through thumbnails of Hoopla movies.",
   "main": "index.js",
   "scripts": {
     "test": "",
@@ -9,13 +9,7 @@
     "build": "rimraf dist && webpack --config ./webpack.production.config.js --progress --profile --colors",
     "eslint": "eslint ."
   },
-  "keywords": [
-    "es6",
-    "react",
-    "redux"
-  ],
-  "author": "Jean-Pierre Sierens",
-  "license": "MIT",
+  "author": "John Murphy",
   "dependencies": {
     "better-react-spinkit": "^1.2.4",
     "es6-promise": "^4.0.5",
