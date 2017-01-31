@@ -5,7 +5,7 @@ import FaArrowLeft from 'react-icons/fa/arrow-left';
 import FaArrowRight from 'react-icons/fa/arrow-right';
 import { TITLES_PER_PAGE } from '../constants';
 
-const Pagination = ({ page, resultCount }) => {
+const Pagination = ({ page, resultCount, allLoaded }) => {
     const startPos = (page - 1) * TITLES_PER_PAGE + 1;
     const showingResults = [ startPos, startPos + resultCount - 1].join(' - ');
 
@@ -14,16 +14,23 @@ const Pagination = ({ page, resultCount }) => {
         nextLink: { visibility: (resultCount === TITLES_PER_PAGE) ? 'visible' : 'hidden' },
         resultCount: { visibility: (resultCount > 0) ? 'visible' : 'hidden' }
     };
+
     return (
       <div className={pagination}>
-        <Link to={{ query: { page: page - 1 } }} style={styles.prevLink}>
+        <Link
+            to={{ query: { page: page - 1 } }}
+            style={styles.prevLink}
+            onClick={evt => !allLoaded && evt.preventDefault()}>
             <FaArrowLeft />
             Previous page
         </Link>
         <span style={styles.resultCount}>Results: {showingResults}</span>
-        <Link to={{ query: { page: page + 1 } }} style={styles.nextLink}>
+        <Link
+            to={{ query: { page: page + 1 } }}
+            style={styles.nextLink}
+            onClick={evt => !allLoaded && evt.preventDefault()}>
             Next page
-            <FaArrowRight/>
+            <FaArrowRight />
         </Link>
       </div>
     );
@@ -31,8 +38,8 @@ const Pagination = ({ page, resultCount }) => {
 
 Pagination.propTypes = {
     page: PropTypes.number,
-    resultCount: PropTypes.number
-
+    resultCount: PropTypes.number,
+    allLoaded: PropTypes.bool
 };
 
 export default Pagination;
