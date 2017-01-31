@@ -43,7 +43,7 @@ class ThumbnailViewer extends Component {
                 />
               )) },
             </div>,
-            allLoaded && <Pagination page={page} resultCount={thumbnails.length} allLoaded={allLoaded} key="btmPag"/>
+            allLoaded && <Pagination page={page} resultCount={thumbnails.length} allLoaded={true} key="btmPag"/>
         ] : '';
 
         return (
