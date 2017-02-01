@@ -1,5 +1,7 @@
 .pagination {
   justify-content: space-between;
+  width: 99%;
+  align-items: center;
 
   a, a:visited {
     color: blue;
@@ -10,6 +12,26 @@
       top: -1px;
     }
   }
+
+  span {
+    /* result count */
+    font-style: italic;
+  }
+
+  a:hover {
+    color: rgb(0, 102, 255);
+  }
+
+  @media (max-width: 500px) {
+    /* mobile */
+    a, a:visited, span {
+      font-size: 3vw;
+    }
+    svg {
+      margin: 1vw !important;
+    }
+  }
+
   * {
     display: inline-block;
   }
