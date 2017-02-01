@@ -1,12 +1,16 @@
 import React, { PropTypes, Component } from 'react';
 import { connect } from 'react-redux';
 import { loadThumbnails, thumbnailLoaded } from '../actions';
-import SingleTitle from '../components/SingleTitle';
+import ThumbnailGrid from '../components/ThumbnailGrid';
 import Pagination from '../components/Pagination';
 import { thumbnailViewer } from '../styles/thumbnailViewer.scss';
 import { ThreeBounce } from 'better-react-spinkit';
 
 class ThumbnailViewer extends Component {
+    constructor(props) {
+        super(props);
+        this.thumbnailLoaded = this.thumbnailLoaded.bind(this);
+    }
     componentDidMount() {
         this.props.loadThumbnails(this.props.page);
     }
@@ -31,27 +35,23 @@ class ThumbnailViewer extends Component {
             </h2>
         );
 
-        const thumbnailGrid = (!thumbnailsFetching && thumbnails.length) ? [
-            <div style={{ display: (allLoaded) ? 'flex' : 'none'}} key="grid">
-              { thumbnails.map((title, i) => (
-                <SingleTitle
-                    key={i}
-                    title={title.title}
-                    artistName={title.artistName}
-                    artKey={title.artKey}
-                    onThumbnailLoad={this.thumbnailLoaded.bind(this)}
-                />
-              )) },
-            </div>,
-            allLoaded && <Pagination page={page} resultCount={thumbnails.length} allLoaded={true} key="btmPag"/>
-        ] : '';
+        const pagination = (
+            <Pagination
+                page={page}
+                resultCount={thumbnails.length}
+                allLoaded={allLoaded} />
+        );
 
         return (
           <div className={thumbnailViewer}>
             You are browsing <b>MOVIE</b> titles<br />
-            <Pagination page={page} resultCount={thumbnails.length} allLoaded={allLoaded}/>
-            {optionalLoading}
-            {thumbnailGrid}
+            { pagination }
+            { optionalLoading }
+            <ThumbnailGrid
+                thumbnails={thumbnails}
+                allLoaded={allLoaded}
+                thumbnailLoaded={this.thumbnailLoaded} />
+            { allLoaded && pagination }
           </div>
         );
     }
