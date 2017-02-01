@@ -1,6 +1,3 @@
-// import * as types from './types';
-import { fetchMovies } from '../api/index.js';
-
 export function thumbnailsFetching(bool) {
     return {
         type: 'THUMBNAILS_FETCHING',
@@ -22,30 +19,17 @@ export function thumbnailsFetchError(error) {
     };
 }
 
-export function thumbnailLoaded(loadCount) {
+export function thumbnailLoaded() {
     return {
-        type: 'THUMBNAIL_LOADED',
-        count: loadCount
+        type: 'THUMBNAIL_LOADED'
     };
 }
 
-export function pageCached(bool) {
+export function pageCached(cachedThumbnails) {
     return {
         type: 'PAGE_CACHED',
-        cached: bool
+        thumbnails: cachedThumbnails
     };
 }
 
-export function loadThumbnails(page) {
-    return (dispatch) => {
-        dispatch(thumbnailsFetching(true));
-
-        fetchMovies(page, dispatch)
-            .then((response) => {
-                dispatch(thumbnailsFetching(false));
-                return response;
-            })
-            .then((thumbnails) => dispatch(thumbnailsFetchSuccess(thumbnails, page)))
-            .catch((e) => dispatch(thumbnailsFetchError(e)));
-    };
-}
+export {default as loadThumbnails} from './loadThumbnails';

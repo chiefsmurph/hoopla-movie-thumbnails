@@ -2,6 +2,7 @@ import { combineReducers } from 'redux';
 
 const thumbnails = (state = [], action) => {
     switch (action.type) {
+        case 'PAGE_CACHED':
         case 'THUMBNAILS_FETCH_SUCCESS':
             return action.thumbnails;
         default:
@@ -38,7 +39,7 @@ const pageCached = (state = false, action) => {
         case 'THUMBNAILS_FETCHING':
             return (action.thumbnailsFetching) ? false : state;
         case 'PAGE_CACHED':
-            return action.cached;
+            return true;
         default:
             return state;
     }
