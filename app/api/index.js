@@ -9,26 +9,22 @@ export const fetchMovies = (page, dispatch) => {
 
     if (apiCache[page]) {
         return new Promise((resolve) => {
-            setTimeout(() => {
-                dispatch(pageCached(true));
-                resolve(apiCache[page]);
-            }, 100);
+            dispatch(pageCached(true));
+            resolve(apiCache[page]);
         });
     }
-
-    const processStatus = (response) => {
-        if (response.status === 200) {
-            const responseJSON = response.json();
-            apiCache[page] = responseJSON;
-            return Promise.resolve(responseJSON);
-        }
-        return Promise.reject(new Error(response.statusText));
-    };
 
     return fetch(`https://hoopla-ws-dev.hoopladigital.com/kinds/7/titles/featured?offset=${offset}&limit=${TITLES_PER_PAGE}&kindId=7`, {
         headers: {
             'ws-api': '2.1'
         }
     })
-        .then(processStatus);
+        .then((response) => {
+            if (response.status === 200) {
+                const responseJSON = response.json();
+                apiCache[page] = responseJSON;
+                return Promise.resolve(responseJSON);
+            }
+            return Promise.reject(new Error(response.statusText));
+        });
 };
