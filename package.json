@@ -26,7 +26,8 @@
     "react-router-redux": "^4.0.4",
     "react-spinner": "^0.2.6",
     "redux": "^3.5.2",
-    "redux-thunk": "^2.2.0"
+    "redux-thunk": "^2.2.0",
+    "whatwg-fetch": "^2.0.2"
   },
   "devDependencies": {
     "autoprefixer": "^6.3.6",

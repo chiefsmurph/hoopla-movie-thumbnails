@@ -1,6 +1,7 @@
 import Promise from 'es6-promise';
 import { pageCached } from '../actions';
 import { TITLES_PER_PAGE } from '../constants';
+import 'whatwg-fetch';
 
 const apiCache = {};
 
